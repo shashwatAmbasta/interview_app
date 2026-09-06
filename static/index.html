@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sift — AI interview studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+  <main id="auth-view" class="auth-shell">
+    <section class="auth-intro">
+      <div class="brand"><span class="brand-mark">✦</span> sift</div>
+      <div class="intro-copy">
+        <p class="eyebrow">AI interview studio</p>
+        <h1>Meet the person<br><em>behind</em> the paper.</h1>
+        <p class="intro-text">Turn a resume or portfolio into a thoughtful, grounded conversation. No scripts. Better signals.</p>
+      </div>
+      <div class="intro-footer"><span class="status-dot"></span> Your workspace, kept private</div>
+    </section>
+    <section class="auth-panel">
+      <div class="auth-panel-inner">
+        <div class="auth-tabs"><button class="tab active" data-mode="login">Sign in</button><button class="tab" data-mode="register">Create account</button></div>
+        <div class="auth-heading"><p class="eyebrow">Welcome back</p><h2 id="auth-title">Pick up where you left off.</h2><p id="auth-subtitle">Your next good conversation is waiting.</p></div>
+        <form id="auth-form">
+          <label id="name-field" class="field hidden"><span>Your name</span><input id="name" type="text" autocomplete="name" placeholder="Alex Morgan"></label>
+          <label class="field"><span>Email address</span><input id="email" type="email" required autocomplete="email" placeholder="you@company.com"></label>
+          <label class="field"><span>Password</span><input id="password" type="password" required minlength="8" autocomplete="current-password" placeholder="8+ characters"></label>
+          <button class="primary-button" type="submit"><span id="auth-action">Enter workspace</span><span>↗</span></button>
+        </form>
+        <p class="auth-note">By continuing, you agree to use Sift thoughtfully and keep candidate data confidential.</p>
+      </div>
+    </section>
+  </main>
+  <main id="app-view" class="app-shell hidden">
+    <header class="topbar"><div class="brand"><span class="brand-mark">✦</span> sift</div><div class="topbar-right"><span id="connection-status" class="connection"><span class="status-dot"></span> Session secure</span><button id="logout" class="ghost-button">Sign out</button><div id="avatar" class="avatar">AM</div></div></header>
+    <section class="workspace">
+      <aside class="sidebar"><div class="sidebar-top"><p class="eyebrow">Interview desk</p><h2>Find the signal.</h2><p>Upload a candidate document and let the conversation take shape.</p></div><div class="sidebar-bottom"><div class="mini-stat"><strong>01</strong><span>Document<br>required</span></div><div class="mini-stat"><strong>05</strong><span>Questions<br>generated</span></div></div></aside>
+      <section class="content-area">
+        <div id="upload-state" class="content-view"><div class="section-header"><div><p class="eyebrow">Start a new session</p><h1>What are we curious about?</h1></div><span class="step-count">01 <i>/</i> 02</span></div><div id="drop-zone" class="drop-zone"><input type="file" id="file-input" accept=".pdf,.docx,.doc" hidden><div class="upload-icon">↑</div><h3>Drop a resume or portfolio here</h3><p>PDF or Word document · max 12 MB</p><button id="browse-button" class="secondary-button" type="button">Choose a file <span>⌘</span></button></div><div class="trust-row"><span>✦</span><p>Questions are grounded in the document, never generic.</p><span class="file-types">PDF &nbsp; DOCX</span></div></div>
+        <div id="interview-state" class="content-view hidden"><div class="section-header"><div><p class="eyebrow">Live interview <span class="live-pill">● recording notes</span></p><h1 id="interview-title">A conversation worth having.</h1></div><span id="question-count" class="step-count">01 <i>/</i> 05</span></div><div class="question-card"><div class="question-meta"><span id="question-type">WARM-UP</span><span id="question-index">01</span></div><h2 id="question-text"></h2><p id="question-intent" class="question-intent"></p><div class="answer-area"><textarea id="answer-input" placeholder="Capture their answer here..." rows="5"></textarea><div class="answer-footer"><span>Notes are saved to this session</span><button id="next-button" class="primary-button" type="button">Save & next <span>→</span></button></div></div></div><div class="progress-track"><div id="progress-bar"></div></div></div>
+        <div id="complete-state" class="content-view hidden"><div class="complete-mark">✓</div><p class="eyebrow">Session complete</p><h1>Good questions.<br>Better signal.</h1><p class="complete-copy">You made it through the conversation. The notes from this session are held in your secure workspace.</p><button id="new-session" class="primary-button" type="button">Start another <span>↗</span></button></div>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
